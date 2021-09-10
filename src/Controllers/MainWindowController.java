@@ -1,4 +1,71 @@
 package Controllers;
 
+import Classes.LoginData;
+import Classes.Window;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class MainWindowController {
+    @FXML private ListView<LoginData> loginDataListView;
+    private final ArrayList<LoginData> loginDataList = new ArrayList<>();
+    @FXML private void initialize(){
+        this.getDataFromDatabase();
+        this.loadDataToLists();
+    }
+    /*Makes connection to database*/
+    private ResultSet connectToDatabase(String query){
+        try{
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginData", "root", "");
+            Statement myStat = myConn.createStatement();
+            if(query.startsWith("UPDATE") || query.startsWith("DELETE"))myStat.executeUpdate(query);
+            else return myStat.executeQuery(query);
+        }
+        catch(Exception exc){
+            exc.printStackTrace();
+        }
+        return null;
+    }
+    public void databaseConnectionError(){
+        this.createPopUpWindow("Database error!!!");
+    }
+    /*Gets data from database and inserts it into order list*/
+    private void getDataFromDatabase(){
+        try{
+            ResultSet myRes = this.connectToDatabase("SELECT * FROM tasks");
+            while(myRes.next())
+                this.loginDataList.add(new LoginData(myRes.getInt("id"), myRes.getString("name"), myRes.getString("login"), myRes.getString("password")));
+        }
+        catch(Exception exc){
+            this.databaseConnectionError();
+            Stage stage = (Stage) this.loginDataListView.getScene().getWindow();
+            stage.close();
+            exc.printStackTrace();
+        }
+    }
+    /*Inserts data from order list into listviews*/
+    private void loadDataToLists(){
+        this.loginDataListView.setCellFactory((lv) -> LoginDataListCell.newInstance());
+        ObservableList<LoginData> tasksToDo = FXCollections.observableArrayList();
+        for(LoginData task : this.loginDataList) {
+                tasksToDo.add(task);
+                this.loginDataListView.setItems(tasksToDo);
+        }
+    }
+
+    private void createPopUpWindow(String message){
+        Window newWindow = new Window("PopUp Window", "/Views/PopUpWindow.fxml", "/Styles/style.css", 235, 92);
+        newWindow.showWindow();
+        PopUpWindowController scene4Controller = newWindow.getLoader().getController();
+        scene4Controller.transferMessage(message, null);
+    }
+
 }
