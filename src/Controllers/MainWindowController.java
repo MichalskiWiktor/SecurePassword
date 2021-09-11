@@ -24,7 +24,7 @@ public class MainWindowController {
     /*Makes connection to database*/
     private ResultSet connectToDatabase(String query){
         try{
-            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/LoginData", "root", "");
+            Connection myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/securepassword", "root", "");
             Statement myStat = myConn.createStatement();
             if(query.startsWith("UPDATE") || query.startsWith("DELETE"))myStat.executeUpdate(query);
             else return myStat.executeQuery(query);
@@ -40,7 +40,7 @@ public class MainWindowController {
     /*Gets data from database and inserts it into order list*/
     private void getDataFromDatabase(){
         try{
-            ResultSet myRes = this.connectToDatabase("SELECT * FROM tasks");
+            ResultSet myRes = this.connectToDatabase("SELECT * FROM logindata");
             while(myRes.next())
                 this.loginDataList.add(new LoginData(myRes.getInt("id"), myRes.getString("name"), myRes.getString("login"), myRes.getString("password")));
         }
@@ -63,9 +63,10 @@ public class MainWindowController {
 
     private void createPopUpWindow(String message){
         Window newWindow = new Window("PopUp Window", "/Views/PopUpWindow.fxml", "/Styles/style.css", 235, 92);
-        newWindow.showWindow();
+        newWindow.initWindow();
         PopUpWindowController scene4Controller = newWindow.getLoader().getController();
         scene4Controller.transferMessage(message, null);
+        newWindow.showWindow();
     }
 
 }
