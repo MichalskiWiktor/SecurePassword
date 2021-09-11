@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/passwordDecoder.iml" filepath="$PROJECT_DIR$/passwordDecoder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SecurePassword.iml" filepath="$PROJECT_DIR$/SecurePassword.iml" />
     </modules>
   </component>
 </project>

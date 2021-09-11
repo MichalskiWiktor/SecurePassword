@@ -1,4 +1,4 @@
-package Classes;
+package Modules;
 
 public class LoginData {
     private int id;
@@ -28,3 +28,4 @@ public class LoginData {
         return this.deCodedPassword;
     }
 }
+

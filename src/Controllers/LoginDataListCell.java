@@ -1,6 +1,6 @@
 package Controllers;
 
-import Classes.LoginData;
+import Modules.LoginData;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
