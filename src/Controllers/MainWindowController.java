@@ -1,7 +1,7 @@
 package Controllers;
 
-import Classes.LoginData;
-import Classes.Window;
+import Modules.LoginData;
+import Modules.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

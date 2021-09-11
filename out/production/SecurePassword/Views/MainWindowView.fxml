@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="752.0" prefWidth="1063.0" styleClass="pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainWindowController">
+    <ListView fx:id="loginDataListView" layoutX="262.0" layoutY="142.0" prefHeight="504.0" prefWidth="691.0" />
+    <Label layoutX="355.0" layoutY="14.0" prefHeight="65.0" prefWidth="388.0" text="Password Decoder">
+        <font>
+            <Font size="44.0" />
+        </font></Label>
+    <Label layoutX="535.0" layoutY="90.0" text="Passwords:">
+        <font>
+            <Font size="30.0" />
+        </font></Label>
+   <AnchorPane layoutX="21.0" layoutY="258.0" prefHeight="236.0" prefWidth="231.0">
+      <children>
+          <Button layoutX="16.0" mnemonicParsing="false" text="Add new password">
+              <font>
+                  <Font size="20.0" />
+              </font>
+         </Button>
+          <Button layoutX="26.0" layoutY="57.0" mnemonicParsing="false" text="Modify password">
+              <font>
+                  <Font size="20.0" />
+              </font>
+         </Button>
+          <Button layoutX="53.0" layoutY="118.0" mnemonicParsing="false" text="Modify key">
+              <font>
+                  <Font size="20.0" />
+              </font>
+         </Button>
+          <Button layoutX="73.0" layoutY="176.0" mnemonicParsing="false" text="Delete">
+              <font>
+                  <Font size="20.0" />
+              </font>
+         </Button>
+      </children></AnchorPane>
+</AnchorPane>
