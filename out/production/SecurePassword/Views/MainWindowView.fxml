@@ -10,7 +10,8 @@
         <font>
             <Font size="44.0" />
         </font></Label>
-    <Label layoutX="535.0" layoutY="90.0" text="Passwords:">
+    <Button fx:id="deCodeBtn" layoutX="99.0" layoutY="166.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" />
+    <Label layoutX="535.0" layoutY="90.0" text="Login Data:">
         <font>
             <Font size="30.0" />
         </font></Label>

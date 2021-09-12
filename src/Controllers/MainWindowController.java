@@ -5,7 +5,9 @@ import Modules.Window;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
@@ -17,9 +19,19 @@ import java.util.ArrayList;
 public class MainWindowController {
     @FXML private ListView<LoginData> loginDataListView;
     private final ArrayList<LoginData> loginDataList = new ArrayList<>();
+    @FXML private Button deCodeBtn;
     @FXML private void initialize(){
         this.getDataFromDatabase();
         this.loadDataToLists();
+        this.initPhotos();
+    }
+    /*Sets default photos*/
+    private void initPhotos(){
+        ImageView imageView = new ImageView(getClass().getResource("/Data/photos/lock.png").toExternalForm());
+        imageView.setFitHeight(50);
+        imageView.setFitWidth(50);
+        imageView.setY(10);
+        this.deCodeBtn.setGraphic(imageView);
     }
     /*Makes connection to database*/
     private ResultSet connectToDatabase(String query){
@@ -54,10 +66,10 @@ public class MainWindowController {
     /*Inserts data from order list into listviews*/
     private void loadDataToLists(){
         this.loginDataListView.setCellFactory((lv) -> LoginDataListCell.newInstance());
-        ObservableList<LoginData> tasksToDo = FXCollections.observableArrayList();
-        for(LoginData task : this.loginDataList) {
-                tasksToDo.add(task);
-                this.loginDataListView.setItems(tasksToDo);
+        ObservableList<LoginData> loginData = FXCollections.observableArrayList();
+        for(LoginData logindata : this.loginDataList) {
+            loginData.add(logindata);
+            this.loginDataListView.setItems(loginData);
         }
     }
 
