@@ -11,6 +11,7 @@ public class LoginData {
         this.name = name;
         this.login = login;
         this.password = password;
+        this.deCodedPassword = password;
     }
     public int getId(){
         return this.id;
@@ -26,6 +27,9 @@ public class LoginData {
     }
     public String getDeCodedPassword(){
         return this.deCodedPassword;
+    }
+    public void setDeCodedPassword(String deCodedPassword){
+        this.deCodedPassword = deCodedPassword;
     }
 }
 

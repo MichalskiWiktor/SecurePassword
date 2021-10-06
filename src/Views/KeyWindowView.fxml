@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="210.0" prefWidth="281.0" styleClass="pane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.KeyWindowController">
+   <children>
+      <Label layoutX="75.0" layoutY="29.0" text="Insert Key:">
+         <font>
+            <Font size="29.0" />
+         </font></Label>
+      <PasswordField fx:id="keyField" layoutX="51.0" layoutY="85.0" prefHeight="34.0" prefWidth="179.0" />
+      <Button layoutX="111.0" layoutY="143.0" mnemonicParsing="false" onAction="#confirmBtnClicked" text="Confirm" />
+   </children>
+</AnchorPane>
