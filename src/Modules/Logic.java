@@ -9,7 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Logic {
+<<<<<<< HEAD
+    public ArrayList<LoginData> loginDataList = new ArrayList<>();
+=======
     public final ArrayList<LoginData> loginDataList = new ArrayList<>();
+>>>>>>> origin/main
     /*Makes connection to database*/
     private ResultSet connectToDatabase(String query){
         try{
@@ -39,7 +43,11 @@ public class Logic {
         }
         return true;
     }
+<<<<<<< HEAD
+    public String deCodePassword(String key, LoginData selectedItem){
+=======
     public void deCodePassword(String key, LoginData selectedItem){
+>>>>>>> origin/main
         int sum = 0;
         String newPassword = "";
         for(LoginData item : this.loginDataList){
@@ -48,16 +56,28 @@ public class Logic {
                     if(i%2==0)sum += Character.getNumericValue(key.charAt(i));
                     else sum -= Character.getNumericValue(key.charAt(i));
                 }
+<<<<<<< HEAD
+                //System.out.print("S:" + sum + " ");
+=======
                 System.out.print("S:" + sum + " ");
+>>>>>>> origin/main
                 for(int i=0;i<item.getPassword().length();i++){
                     int asciiValue = item.getPassword().charAt(i) + sum;
                     char convertedChar = (char)asciiValue;
                     newPassword += convertedChar;
                 }
                 item.setDeCodedPassword(newPassword);
+<<<<<<< HEAD
+                return newPassword;
+                //System.out.print("P:"+ newPassword);
+            }
+        }
+        return null;
+=======
                 System.out.print("P:"+ newPassword);
             }
         }
+>>>>>>> origin/main
     }
     private void createPopUpWindow(String message){
         Window newWindow = new Window("PopUp Window", "/Views/PopUpWindow.fxml", "/Styles/style.css", 235, 92);

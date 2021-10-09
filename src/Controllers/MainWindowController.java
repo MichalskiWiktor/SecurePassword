@@ -17,7 +17,11 @@ public class MainWindowController {
     @FXML private Button deCodeBtn;
     @FXML private void initialize(){
         boolean answer = this.logic.getDataFromDatabase();
+<<<<<<< HEAD
+        if(!answer){
+=======
         if(answer==false){
+>>>>>>> origin/main
             Stage stage = (Stage) this.loginDataListView.getScene().getWindow();
             stage.close();
         }
@@ -43,6 +47,8 @@ public class MainWindowController {
     }
     @FXML protected void createKeyWindow(){
         Window newWindow = new Window("Key Window", "/Views/KeyWindowView.fxml", "/Styles/style.css", 281, 210);
+<<<<<<< HEAD
+=======
         newWindow.initWindow();
         KeyWindowController scene4Controller = newWindow.getLoader().getController();
         scene4Controller.transferSelectedItemAndLogicObject(this.loginDataListView.getSelectionModel().getSelectedItem(), this.logic);
@@ -50,10 +56,11 @@ public class MainWindowController {
     }
     private void createPopUpWindow(String message){
         Window newWindow = new Window("PopUp Window", "/Views/PopUpWindow.fxml", "/Styles/style.css", 235, 92);
+>>>>>>> origin/main
         newWindow.initWindow();
-        PopUpWindowController scene4Controller = newWindow.getLoader().getController();
-        scene4Controller.transferMessage(message, null);
+        KeyWindowController scene4Controller = newWindow.getLoader().getController();
+        scene4Controller.transferSelectedItemAndLogicObject(this.loginDataListView.getSelectionModel().getSelectedItem(), this.logic);
         newWindow.showWindow();
+        this.loadDataToLists();
     }
-
 }
