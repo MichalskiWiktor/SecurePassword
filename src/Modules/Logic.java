@@ -9,7 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Logic {
-    public final ArrayList<LoginData> loginDataList = new ArrayList<>();
+    public ArrayList<LoginData> loginDataList = new ArrayList<>();
     /*Makes connection to database*/
     private ResultSet connectToDatabase(String query){
         try{
@@ -39,7 +39,7 @@ public class Logic {
         }
         return true;
     }
-    public void deCodePassword(String key, LoginData selectedItem){
+    public String deCodePassword(String key, LoginData selectedItem){
         int sum = 0;
         String newPassword = "";
         for(LoginData item : this.loginDataList){
@@ -48,16 +48,18 @@ public class Logic {
                     if(i%2==0)sum += Character.getNumericValue(key.charAt(i));
                     else sum -= Character.getNumericValue(key.charAt(i));
                 }
-                System.out.print("S:" + sum + " ");
+                //System.out.print("S:" + sum + " ");
                 for(int i=0;i<item.getPassword().length();i++){
                     int asciiValue = item.getPassword().charAt(i) + sum;
                     char convertedChar = (char)asciiValue;
                     newPassword += convertedChar;
                 }
                 item.setDeCodedPassword(newPassword);
-                System.out.print("P:"+ newPassword);
+                return newPassword;
+                //System.out.print("P:"+ newPassword);
             }
         }
+        return null;
     }
     private void createPopUpWindow(String message){
         Window newWindow = new Window("PopUp Window", "/Views/PopUpWindow.fxml", "/Styles/style.css", 235, 92);
