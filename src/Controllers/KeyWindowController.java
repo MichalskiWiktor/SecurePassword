@@ -2,7 +2,10 @@ package Controllers;
 
 import Modules.Logic;
 import Modules.LoginData;
+<<<<<<< HEAD
 import Modules.Window;
+=======
+>>>>>>> origin/main
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
@@ -15,6 +18,7 @@ public class KeyWindowController{
         this.selectedItem = selectedItem;
         this.logic = logic;
     }
+<<<<<<< HEAD
     public void confirmBtnClicked(){
         String newPassword = this.logic.deCodePassword(this.keyField.getText(), this.selectedItem);
         Stage stage = (Stage) this.keyField.getScene().getWindow();
@@ -26,5 +30,11 @@ public class KeyWindowController{
         scene4Controller.transferNewPassword(newPassword);
         newWindow.showWindow();
         ///tutaj stworz nowe okno z haslem
+=======
+    public String confirmBtnClicked(){
+        this.logic.deCodePassword(this.keyField.getText(), this.selectedItem);
+        return "";
+
+>>>>>>> origin/main
     }
 }
