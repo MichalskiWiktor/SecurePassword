@@ -25,12 +25,12 @@ public class Window {
         try{
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(this.fxmlFile));
             Parent root = fxmlLoader.load();
+            this.loader = fxmlLoader;
             Stage stage = new Stage();
             stage.setTitle(this.title);
             stage.setResizable(false);
             stage.setScene(new Scene(root, this.width, this.height));
             stage.getScene().getStylesheets().add(Objects.requireNonNull(getClass().getResource(this.cssFile)).toExternalForm());;
-            this.loader = fxmlLoader;
             this.stage = stage;
         } catch(Exception e){
             System.out.print("New window can not be load!!!");

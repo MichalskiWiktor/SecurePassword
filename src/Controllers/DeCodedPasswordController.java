@@ -2,6 +2,7 @@ package Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class DeCodedPasswordController {
     @FXML private Label newPassLabel;
@@ -9,7 +10,7 @@ public class DeCodedPasswordController {
         this.newPassLabel.setText(newPassword);
     }
     public void confirmBtnClicked(){
-        ///close window
-
+        Stage stage = (Stage) this.newPassLabel.getScene().getWindow();
+        stage.close();
     }
 }

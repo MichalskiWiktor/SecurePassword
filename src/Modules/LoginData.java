@@ -5,13 +5,16 @@ public class LoginData {
     private String name;
     private String login;
     private String password;
-    private String deCodedPassword;
     public LoginData(int id, String name, String login, String password){
         this.id = id;
         this.name = name;
         this.login = login;
         this.password = password;
-        this.deCodedPassword = password;
+    }
+    public LoginData(String name, String login, String password){
+        this.name = name;
+        this.login = login;
+        this.password = password;
     }
     public int getId(){
         return this.id;
@@ -24,12 +27,6 @@ public class LoginData {
     }
     public String getPassword(){
         return this.password;
-    }
-    public String getDeCodedPassword(){
-        return this.deCodedPassword;
-    }
-    public void setDeCodedPassword(String deCodedPassword){
-        this.deCodedPassword = deCodedPassword;
     }
 }
 

@@ -16,7 +16,7 @@ public class PopUpWindowController {
        }
     }
     public void closeWindow(){
-        Stage stage = (Stage) closeButton.getScene().getWindow();
+        Stage stage = (Stage) this.closeButton.getScene().getWindow();
         stage.close();
         if(this.newTaskStage!=null)this.newTaskStage.close();
     }
